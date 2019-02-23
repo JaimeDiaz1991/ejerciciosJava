@@ -58,17 +58,19 @@ public class Biblioteca {
 			this.ejemplares_prestados = ejemplares_prestados;
 		}
 
-		public void prestamo() {
-		if(ejemplares>0) {	
+		public boolean prestamo() {
+			boolean b;
+			b=false;
+			if(ejemplares>0) {	
+				b=true;
 			ejemplares--;
 			ejemplares_prestados++;
-			}else{System.out.println(" Libro agotado ");}
+			}
+			return b;
 		}
 		public void devolucion() {
-			if(ejemplares_prestados>0) {
 				ejemplares++;
 				ejemplares_prestados--;
-			}else {System.out.println("El libro no es de esta Biblioteca");}
 		}
 
 		public String getTitulo() {

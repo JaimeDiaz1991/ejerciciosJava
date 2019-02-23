@@ -61,7 +61,7 @@ public class Principal {
 		
 
 				switch (opcion) {
-			case 1:
+			case 1:	
 				System.out.println("Los libros disponibles son :"
 						+ "\n"+libro1.getTitulo()+""
 						+ "\n"+libro2.getTitulo()+""
@@ -72,11 +72,14 @@ public class Principal {
 
 				for (int i=0;i<libreria.size();i++) {
 				if(aux.equalsIgnoreCase(libreria.get(i).getTitulo())) {
+					opcion=i;}}
+					if(libreria.get(opcion).prestamo()==true) {
 				//me llevo la posicion del arrylist al metod de prestamo
-				libreria.get(i).prestamo();	
+				libreria.get(opcion).prestamo();
+				System.out.println("El Libro "+libreria.get(opcion).getTitulo()+" a sido prestado ");
 				//a esta altura la cantidad de libros prestados y su cantidad a variado
-				}
-				}
+				}else {System.out.println("El libro esta agotado");}
+				
 				break;
 			case 2:
 				System.out.println("Los libros disponibles son :"
@@ -89,10 +92,10 @@ public class Principal {
 
 				for (int i=0;i<libreria.size();i++) {
 					if(aux.equalsIgnoreCase(libreria.get(i).getTitulo())) {
-						libreria.get(i).devolucion();	
-
+						opcion=i;
 					}
 					}
+				libreria.get(opcion).devolucion();
 				break;
 				
 			case 3:
