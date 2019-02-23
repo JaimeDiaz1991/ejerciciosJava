@@ -1,4 +1,6 @@
 package EjerciciosTema10_1;
+
+
 /*	•	Constructor por defecto.
 • este no le tengo	Constructor con parámetros, todos los posibles constructores.
 •	Métodos Setters/getters
@@ -57,11 +59,16 @@ public class Biblioteca {
 		}
 
 		public void prestamo() {
+		if(ejemplares>0) {	
 			ejemplares--;
 			ejemplares_prestados++;
+			}else{System.out.println(" Libro agotado ");}
 		}
 		public void devolucion() {
-			
+			if(ejemplares_prestados>0) {
+				ejemplares++;
+				ejemplares_prestados--;
+			}else {System.out.println("El libro no es de esta Biblioteca");}
 		}
 
 		public String getTitulo() {

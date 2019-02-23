@@ -44,45 +44,67 @@ public class Principal {
 				libro2.setAutor(autor);
 				libro2.setEjemplares(ejemplares);
 				libreria.add(libro2);
-			Biblioteca libro3=new Biblioteca("Lazarrillo de tormes","Juan Bosco", 20 );
-			Biblioteca libro4=new Biblioteca("Teo aprende a Progamar","Satanas",5);
+			//********************* creamos los otros dos objetos con constructores
+			Biblioteca libro3=new Biblioteca("Lazarillo de Tormes","Juan Bosco", 20,0 );
+			Biblioteca libro4=new Biblioteca("Teo aprende a Progamar","Satanas",5,0);
 			libreria.add(libro3);
 			libreria.add(libro4);
 			//************************************* menu***************************
+			do {
 			System.out.println("Que desea realizar "
 					+ " \n 1.- Pedir un prestamo "
 					+ "\n  2.- Realizar una devolucion "
-					+ "\n  3.- Salir del programa");
+					+ "\n  3.- Ver libro "
+					+ "\n  4.- Salir");
 				opcion=teclado.nextInt();
 				teclado.nextLine();
-			switch (opcion) {
+		
+
+				switch (opcion) {
 			case 1:
-				System.out.println("Que libro desea elejir"
+				System.out.println("Los libros disponibles son :"
 						+ "\n"+libro1.getTitulo()+""
 						+ "\n"+libro2.getTitulo()+""
 						+ "\n"+libro3.getTitulo()+""
-						+ "\n"+libro4.getTitulo()+"");
+						+ "\n"+libro4.getTitulo()+""
+						+"\n Elija un libro");
 				aux=teclado.nextLine();
 
 				for (int i=0;i<libreria.size();i++) {
-				if(aux.equals(libreria.get(i).getTitulo())) {
-					opcion=i;
-				System.out.println(libreria.get(i));
-				System.out.println("ESto es antes  "+libreria.get(i).getEjemplares()
-					+libreria.get(i).getEjemplares_prestados());
+				if(aux.equalsIgnoreCase(libreria.get(i).getTitulo())) {
+				//me llevo la posicion del arrylist al metod de prestamo
 				libreria.get(i).prestamo();	
-				System.out.println("esto es despues   "+libreria.get(i).getEjemplares()
-						+libreria.get(i).getEjemplares_prestados());
+				//a esta altura la cantidad de libros prestados y su cantidad a variado
 				}
 				}
 				break;
 			case 2:
-				
+				System.out.println("Los libros disponibles son :"
+						+ "\n"+libro1.getTitulo()+""
+						+ "\n"+libro2.getTitulo()+""
+						+ "\n"+libro3.getTitulo()+""
+						+ "\n"+libro4.getTitulo()+""
+						+"\n Elija un libro");
+				aux=teclado.nextLine();
+
+				for (int i=0;i<libreria.size();i++) {
+					if(aux.equalsIgnoreCase(libreria.get(i).getTitulo())) {
+						libreria.get(i).devolucion();	
+
+					}
+					}
 				break;
-			case 3:
 				
+			case 3:
+				for (int i=0;i<libreria.size();i++) {
+				System.out.println("Titulo : "+libreria.get(i).getTitulo()
+						+"\n  Autor : "+libreria.get(i).getAutor()
+						+"\n Ejemplares Disponibles : "+libreria.get(i).getEjemplares() 
+						+"\n Ejemplares Prestados : "+libreria.get(i).getEjemplares_prestados());
+				}
 				break;
 			}
-		}
+				
+		}while(opcion!=4);}
 	
 }
