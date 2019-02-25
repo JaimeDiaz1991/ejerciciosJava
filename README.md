@@ -6,7 +6,7 @@ Instalar maven
 https://es.stackoverflow.com/questions/65317/como-instalar-maven-en-windows
 
 Acceder a la carpera donde se encuentra el archivo pom.xml y ahí ejecutar en el cmd (linea de comandos):
--  maven clean install
+-  mvn clean install
 
 El resultado tiene que se algo tipo:
 
