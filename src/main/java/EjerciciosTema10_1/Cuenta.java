@@ -7,6 +7,9 @@ public class Cuenta {
   private double saldo;
 
   // creo todos los constructores posibles de esta clase
+  public Cuenta() {
+	  
+  }
   public Cuenta(double saldo) {
     super();
     this.saldo = saldo;
